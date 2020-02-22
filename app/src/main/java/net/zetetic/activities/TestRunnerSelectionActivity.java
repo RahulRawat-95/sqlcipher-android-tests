@@ -15,24 +15,13 @@ public class TestRunnerSelectionActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.test_runners);
     Button behaviorSuite = findViewById(R.id.run_behavior_test_suite);
-    Button scrollingCursorSuite = findViewById(R.id.run_scrolling_test_suite);
     Button supportSuite = findViewById(R.id.run_support_test_suite);
     if(behaviorSuite != null){
       behaviorSuite.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
           Intent intent = new Intent(TestRunnerSelectionActivity.this,
-              TestSuiteBehaviorsActivity.class);
-          startActivity(intent);
-        }
-      });
-    }
-    if(scrollingCursorSuite != null){
-      scrollingCursorSuite.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-          Intent intent = new Intent(TestRunnerSelectionActivity.this,
-              TestScrollingCursorActivity.class);
+                  TestSuiteBehaviorsActivity.class).putExtra(TestSuiteBehaviorsActivity.EXTRA_IS_SUPPORT, false);
           startActivity(intent);
         }
       });
